@@ -6,7 +6,11 @@ module.exports = function (app) {
   //gets note data from json file
   app.get("/api/notes", function (req, res) {
     res.json(savedNotes);
-    console.log(savedNotes)
+  });
+
+  app.post('/api/notes', function (req, res) {
+    savedNotes.push(req.body)
+    res.json({savedNotes });
   });
 
 };
