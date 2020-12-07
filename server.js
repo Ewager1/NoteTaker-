@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //connects html route 
-
+require('./routes/api-routes')(app)
 require('./routes/html-routes')(app);
 
 //sets ups listener
