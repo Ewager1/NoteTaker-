@@ -10,17 +10,19 @@ module.exports = function (app) {
     res.json(savedNotes);
   });
 
+  //posts user note to api/notes and db.json
   app.post("/api/notes", function (req, res) {
-    savedNotes.push(req.body); //this pushes the new data to api/notes
+    //pushes user entry to /api/notes
+    savedNotes.push(req.body);
     res.json({ savedNotes });
+    console.log(savedNotes);
 
+    //takes the api note data and updates db.json
     fs.writeFile(
-      __dirname + "../db/db.json",
+      path.join(__dirname, "../db/", "db.json"),
       JSON.stringify(savedNotes),
       function writeJSON(err) {
         if (err) return console.log(err);
-        console.log(JSON.stringify(file));
-        console.log("writing to " + fileName);
       }
     );
   });
