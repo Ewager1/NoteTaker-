@@ -54,7 +54,7 @@ const handleNoteSave = function () {
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
-    id: $noteTitle.val() + $noteText.val()
+    id: Date.now() //one of many ways i found to create a unique id 
   };
 
   saveNote(newNote).then(() => {
