@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT ||  8080;
 
 //basic bodyparser code that lets is send back json format
 app.use(express.static(__dirname + '/public'))
